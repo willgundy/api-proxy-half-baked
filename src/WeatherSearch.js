@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { getWeather } from './services/fetch-utils';
+import Spinner from './Spinner';
 
 export default function WeatherSearch() {
       // you'll need to track your weather search results, the loading state, and a form field for location with a default value.
@@ -46,7 +47,7 @@ export default function WeatherSearch() {
         <button>Get Weather</button>
       </form>
       {/* Make a ForecastList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
-      {isLoading ? <div>spinner</div> :
+      {isLoading ? <Spinner /> :
         weather.map((weath, i) => <div key={i}>{weath.pressure}</div>)}
     </section>
   );

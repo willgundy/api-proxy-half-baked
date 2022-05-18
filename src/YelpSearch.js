@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { getYelpInfo } from './services/fetch-utils';
+import Spinner from './Spinner';
 
 export default function YelpSearch() {
     // you'll need to track your yelp search results, the loading state, and a form field for location with a default value.
@@ -48,7 +49,7 @@ export default function YelpSearch() {
         <button>Search Yelp</button>
       </form>
       {/* Make a BusinessesList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
-      {isLoading ? <div>spinner</div> :
+      {isLoading ? <Spinner /> :
         restaurants.map((restaurant, i) => <div key={i}>{restaurant.name}</div>)}
     </section>
   );
