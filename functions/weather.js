@@ -8,18 +8,14 @@ const headers = {
 };
 
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   try {
     const geoCodeResponse = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${event.queryStringParameters.filter}&appid=${process.env.WEATHER_AUTH_KEY}`);
 
-    console.log(geoCodeResponse);
-
-    const [{ lat, lon, name }] = await geoCodeResponse.json();
-    console.log(lat, lon);
+    const [{ lat, lon }] = await geoCodeResponse.json();
 
     const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_AUTH_KEY}`);
 
-    console.log(weatherResponse);
     const data = await weatherResponse.json();
     const json = JSON.stringify({ data });
 
@@ -31,7 +27,6 @@ exports.handler = async (event, context) => {
       body: json,
     };
   } catch (error) {
-    console.log(error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed fetching data' }),
