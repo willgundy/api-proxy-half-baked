@@ -20,10 +20,10 @@ export default function WeatherSearch() {
         
     setIsLoading(false);
     
-    console.log(weather);
-    
-    setWeather(data);
+    setWeather(data.daily);
   }
+
+  console.log(weather);
       
   return (
     <section className='weather'>
@@ -47,7 +47,7 @@ export default function WeatherSearch() {
       </form>
       {/* Make a ForecastList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
       {isLoading ? <div>spinner</div> :
-        weather.map((weath, i) => <div key={i}>{weath.temp}</div>)}
+        weather.map((weath, i) => <div key={i}>{weath.pressure}</div>)}
     </section>
   );
 

@@ -10,12 +10,14 @@ const headers = {
 
 exports.handler = async (event, context) => {
   try {
-    const geoCodeResponse = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${event.queryStringParameters.filter}&limit=${1}&appid=${process.env.WEATHER_AUTH_KEY}`);
+    const geoCodeResponse = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${event.queryStringParameters.filter}&appid=${process.env.WEATHER_AUTH_KEY}`);
+
+    console.log(geoCodeResponse);
 
     const [{ lat, lon, name }] = await geoCodeResponse.json();
-    console.log(lat, lon, name);
+    console.log(lat, lon);
 
-    const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${process.env.WEATHER_AUTH_KEY}`);
+    const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_AUTH_KEY}`);
 
     console.log(weatherResponse);
     const data = await weatherResponse.json();

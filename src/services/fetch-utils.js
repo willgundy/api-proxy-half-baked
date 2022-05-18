@@ -17,7 +17,7 @@ export async function getWeather({ city }) {
 }
 
 export async function getYelpInfo({ city, state }) {
-  const response = await fetch(`/.netlify/functions/yelp?filter=${city + state}`);
+  const response = await fetch(`/.netlify/functions/yelp?filter=${city}`);
   const data = await response.json();
 
   console.log(data);
