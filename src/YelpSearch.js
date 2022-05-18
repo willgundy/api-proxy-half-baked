@@ -24,6 +24,8 @@ export default function YelpSearch() {
 
     setRestaurants(data.results);
   }
+
+  console.log(filters);
   
   return (
     <section className='yelp'>
