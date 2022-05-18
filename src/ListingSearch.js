@@ -22,8 +22,6 @@ export default function ListingSearch() {
     
     setListings(data.bundle);
   }
-
-  console.log(listings);
       
   return (
     <section className='listings'>

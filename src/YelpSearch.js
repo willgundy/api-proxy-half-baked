@@ -24,8 +24,6 @@ export default function YelpSearch() {
 
     setRestaurants(data.businesses);
   }
-
-  console.log(restaurants);
   
   return (
     <section className='yelp'>

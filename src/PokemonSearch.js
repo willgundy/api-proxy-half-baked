@@ -18,8 +18,6 @@ export default function PokemonSearch() {
     
     setIsLoading(false);
 
-    console.log(data);
-
     setPokemon(data.results);
   }
       

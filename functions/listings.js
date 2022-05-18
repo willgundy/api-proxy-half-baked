@@ -8,13 +8,11 @@ const headers = {
 };
 
 
-exports.handler = async (event, context) => {
+exports.handler = async () => {
   try {
     const response = await fetch(`https://api.bridgedataoutput.com/api/v2/actris_ref/listings?access_token=${process.env.MLS_AUTH_KEY}&limit=100&StandardStatus=Active`);
     const data = await response.json();
     const json = JSON.stringify({ data });
-
-    console.log(response);
     
     return { 
       statusCode: 200, 
@@ -22,7 +20,6 @@ exports.handler = async (event, context) => {
       body: json,
     };
   } catch (error) {
-    console.log(error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed fetching data' }),

@@ -24,8 +24,6 @@ export default function WeatherSearch() {
     
     setWeather(data.daily);
   }
-
-  console.log(weather);
       
   return (
     <section className='weather'>
