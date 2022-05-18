@@ -1,27 +1,53 @@
 import { useState } from 'react';
+import { getWeather } from './services/fetch-utils';
 
 export default function WeatherSearch() {
       // you'll need to track your weather search results, the loading state, and a form field for location with a default value.
-  
+  const [filters, setFilters] = useState({
+    city: '',
+    state: '',
+    country: '',
+  });
+  const [weather, setWeather] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+    
   async function handleWeatherSubmit(e) {
     e.preventDefault();
-      
-        // set the loading state to true
-        // use fetch to make a request to your netlify weather function. Be sure to pass the location as a query param in the URL
-      
-  
-        // put the jsonified data in state and set the loading state to false
+    
+    setIsLoading(true);
+    
+    const { data } = await getWeather(filters);
+        
+    setIsLoading(false);
+    
+    console.log(weather);
+    
+    setWeather(data);
   }
       
   return (
     <section className='weather'>
       {/* make the fetch on submit */}
-      <form>
+      <form onSubmit={handleWeatherSubmit}>
             Search weather for a city
         {/* add inputs/labels for city name, state, and country, using all the things we need with react forms. Don't forget to use the value property to sync these up with the default values in react state */}
-        <button>Get weather</button>
+        <label>
+          city
+          <input value={filters.city} onChange={e => setFilters({ ...filters, city: e.target.value })}/>
+        </label>
+        <label>
+          state
+          <input value={filters.state} onChange={e => setFilters({ ...filters, state: e.target.value })}/>
+        </label>
+        <label>
+          country
+          <input value={filters.country} onChange={e => setFilters({ ...filters, country: e.target.value })}/>
+        </label>
+        <button>Get Weather</button>
       </form>
       {/* Make a ForecastList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
+      {isLoading ? <div>spinner</div> :
+        weather.map((weath, i) => <div key={i}>{weath.temp}</div>)}
     </section>
   );
 

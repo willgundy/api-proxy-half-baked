@@ -7,7 +7,7 @@ export async function getPokemon(filter) {
   return data;
 }
 
-export async function getWeather({ city, state, country }) {
+export async function getWeather({ city }) {
   const response = await fetch(`/.netlify/functions/weather?filter=${city}`);
   const data = await response.json();
 
@@ -16,8 +16,8 @@ export async function getWeather({ city, state, country }) {
   return data;
 }
 
-export async function getYelpInfo({ city, state, country }) {
-  const response = await fetch(`/.netlify/functions/yelp?filter=${city}`);
+export async function getYelpInfo({ city, state }) {
+  const response = await fetch(`/.netlify/functions/yelp?filter=${city + state}`);
   const data = await response.json();
 
   console.log(data);
