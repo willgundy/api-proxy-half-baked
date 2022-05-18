@@ -22,7 +22,7 @@ export default function YelpSearch() {
 
     console.log(restaurants);
 
-    setRestaurants(data.results);
+    setRestaurants(data.businesses);
   }
 
   console.log(filters);
@@ -49,7 +49,7 @@ export default function YelpSearch() {
       </form>
       {/* Make a BusinessesList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
       {isLoading ? <div>spinner</div> :
-        restaurants.map((restaurant, i) => <div key={i}>{restaurant}</div>)}
+        restaurants.map((restaurant, i) => <div key={i}>{restaurant.name}</div>)}
     </section>
   );
 }

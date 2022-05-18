@@ -7,8 +7,8 @@ export async function getPokemon(filter) {
   return data;
 }
 
-export async function getWeather(filter) {
-  const response = await fetch(`/.netlify/functions/weather?filter=${filter}`);
+export async function getWeather({ city, state, country }) {
+  const response = await fetch(`/.netlify/functions/weather?filter=${city}`);
   const data = await response.json();
 
   console.log(data);
