@@ -15,7 +15,11 @@
 
 section {
   width: 80vw;
-  height: 95vh;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 header {
@@ -48,6 +52,20 @@ a:hover {
 
 .pokemon {
   background-color: pink;
+}
+
+.yelp button, .card {
+  background-color: darkgreen;
+  color: white;
+  border-radius: 10px;
+}
+
+.weather button {
+  background-color: darkblue;
+}
+
+.pokemon button {
+  background-color: rgb(88, 17, 29);
 }
 
 section li {
@@ -102,4 +120,77 @@ label {
   justify-content: center;
   align-items: center;
   color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 10px;
+}
+
+form input {
+  margin: 15px;
+  border-radius: 5px;
+  height: 5vh;
+  width: 20vw;
+  text-align: center;
+  font-size: large;
+}
+
+form button {
+  height: 5vh;
+  width: 20vw;
+  text-align: center;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.card {
+  width: 20vw;
+  margin: 20px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card img {
+  height: 20vh;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.attribute {
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.card label {
+  font-weight: bolder;
+  margin-left: 5vw;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.weatherCard {
+  width: 10vw;
+  margin: 0px;
+  border: 1px solid black;
 }
