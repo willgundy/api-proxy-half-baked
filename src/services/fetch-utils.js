@@ -18,3 +18,10 @@ export async function getYelpInfo({ city }) {
     
   return data;
 }
+
+export async function getListings({ lowPrice, highPrice }) {
+  const response = await fetch(`/.netlify/functions/listings?lowPrice=${lowPrice}?highPrice=${highPrice}`);
+  const data = await response.json();
+      
+  return data;
+}

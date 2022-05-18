@@ -54,6 +54,10 @@ a:hover {
   background-color: pink;
 }
 
+.listings {
+  background-color: lightslategray;
+}
+
 .yelp button, .card {
   background-color: darkgreen;
   color: white;

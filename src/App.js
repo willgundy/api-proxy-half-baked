@@ -1,6 +1,7 @@
 import PokemonSearch from './PokemonSearch';
 import YelpSearch from './YelpSearch';
 import WeatherSearch from './WeatherSearch';
+import ListingSearch from './ListingSearch';
 import './App.css';
 import Header from './Header';
 import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route exact path="/weather" >
               <WeatherSearch /> 
+            </Route>
+            <Route exact path="/listings" >
+              <ListingSearch /> 
             </Route>
           </Switch>
         </main>
