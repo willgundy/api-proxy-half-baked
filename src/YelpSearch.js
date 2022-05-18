@@ -20,6 +20,8 @@ export default function YelpSearch() {
     
     setIsLoading(false);
 
+    console.log(restaurants);
+
     setRestaurants(data.results);
   }
   
