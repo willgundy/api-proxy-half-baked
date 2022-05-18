@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fetch = require('node-fetch');
 
 const headers = {
   'Access-Control-Allow-Origin': '*',
