@@ -8,48 +8,38 @@
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-around;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 
 section {
-  width: 30%;
-  height: 100%;
+  width: 80vw;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header {
+  width: 80vw;
+  background-color: black;
+  height: 5vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+a {
+  color: white;
+  margin: 5vw;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 2px 2px 2px #FFD700;
+  transform: scale(1.2);
 }
 
 .yelp {
@@ -64,10 +54,147 @@ section {
   background-color: pink;
 }
 
+.listings {
+  background-color: lightslategray;
+}
+
+.yelp button, .card {
+  background-color: darkgreen;
+  color: white;
+  border-radius: 10px;
+}
+
+.weather button {
+  background-color: darkblue;
+}
+
+.pokemon button {
+  background-color: rgb(88, 17, 29);
+}
+
 section li {
   list-style: none;
 }
 
 label {
   display: block;
+}
+
+.bounceball {
+  position: relative;
+  display: inline-block;
+  height: 37px;
+  width: 20px;
+  margin-right: 20px;
+}
+
+.bounceball:before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+    animation: bounce 150ms alternate infinite ease;
+}
+
+@keyframes bounce {
+  0% {
+    top: 30px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: 15px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.loadScreen {
+  display: flex;
+  flex-direction: row;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 10px;
+}
+
+form input {
+  margin: 15px;
+  border-radius: 5px;
+  height: 5vh;
+  width: 20vw;
+  text-align: center;
+  font-size: large;
+}
+
+form button {
+  height: 5vh;
+  width: 20vw;
+  text-align: center;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.card {
+  width: 20vw;
+  margin: 20px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card img {
+  height: 20vh;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.attribute {
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.card label {
+  font-weight: bolder;
+  margin-left: 5vw;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.weatherCard {
+  width: 10vw;
+  margin: 0px;
+  border: 1px solid black;
 }

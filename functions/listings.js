@@ -8,18 +8,15 @@ const headers = {
 };
 
 
-exports.handler = async (event) => {
+exports.handler = async () => {
   try {
-
-    const response = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${event.queryStringParameters.filter}`);
+    const response = await fetch(`https://api.bridgedataoutput.com/api/v2/actris_ref/listings?access_token=${process.env.MLS_AUTH_KEY}&limit=100&StandardStatus=Active`);
     const data = await response.json();
     const json = JSON.stringify({ data });
-
-
+    
     return { 
       statusCode: 200, 
       headers,
-    // this is where you shoot data back to the user. right now it's sending an empty object--replace this with the pokemon data. remember, you do need to stringify it, otherwise netlify gets mad. ¯\_(ツ)_/¯
       body: json,
     };
   } catch (error) {
